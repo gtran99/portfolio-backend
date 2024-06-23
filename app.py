@@ -1,6 +1,8 @@
 from flask import Flask, jsonify
+from flask_cors import CORS
 
 app = Flask(__name__)
+cors = CORS(app, resources={r"/api/*": {"origins": "https://portfolio-backend-9tue.onrender.com/api/portfolio"}})
 
 @app.route('/api/portfolio', methods=['GET'])
 def get_portfolio():
